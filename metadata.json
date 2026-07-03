@@ -1,0 +1,6 @@
+{
+  "name": "DNA da Música",
+  "description": "Uma plataforma premium e interativa para dominar a teoria musical do absoluto zero.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

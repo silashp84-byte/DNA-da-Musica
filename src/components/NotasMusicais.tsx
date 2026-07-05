@@ -98,147 +98,149 @@ export default function NotasMusicais() {
 
               {/* The Piano Container */}
               <div className="relative flex justify-center pb-4 select-none" id="piano-keyboard-container">
-                <div className="relative flex border border-slate-800 rounded-lg overflow-hidden bg-slate-900 shadow-2xl p-2 w-full max-w-xl">
-                  
-                  {/* White Keys */}
-                  {MUSICAL_NOTES.filter(n => n.type === 'natural').map((note) => {
-                    const isNoteActive = activeNote === note.name;
-                    return (
-                      <button
-                        key={note.name}
-                        onMouseEnter={() => setHoveredNote(note)}
-                        onMouseLeave={() => setHoveredNote(null)}
-                        onClick={() => handlePlayKey(note)}
-                        className={`flex-1 h-36 sm:h-44 rounded-b-md transition-all relative flex flex-col justify-end pb-3 items-center text-xs font-bold border-r border-slate-200/20 last:border-0 cursor-pointer ${
-                          isNoteActive
-                            ? 'bg-gradient-to-t from-indigo-500 to-indigo-400 text-white translate-y-0.5 shadow-inner'
-                            : 'bg-white text-slate-900 hover:bg-slate-100'
-                        }`}
-                        style={{ zIndex: 1 }}
-                        id={`piano-key-${note.name}`}
-                      >
-                        <span className="text-[10px] sm:text-xs">{note.name}</span>
-                        <span className="text-[8px] opacity-60 font-mono mt-0.5">{note.enName}</span>
-                      </button>
-                    );
-                  })}
-
-                  {/* Black Keys (Overlayed absolute positioned elements) */}
-                  {/* C# / Db */}
-                  <div className="absolute left-[8%] sm:left-[8.3%] top-2 w-[8%] sm:w-[7.5%] h-24 sm:h-28 z-10">
-                    {(() => {
-                      const note = MUSICAL_NOTES.find(n => n.name === 'Dó#')!;
-                      const isNoteActive = activeNote === note?.name;
-                      return note ? (
+                <div className="relative border border-slate-800 rounded-lg overflow-hidden bg-slate-900 shadow-2xl p-2 w-full max-w-xl">
+                  <div className="relative flex w-full">
+                    
+                    {/* White Keys */}
+                    {MUSICAL_NOTES.filter(n => n.type === 'natural').map((note) => {
+                      const isNoteActive = activeNote === note.name;
+                      return (
                         <button
+                          key={note.name}
                           onMouseEnter={() => setHoveredNote(note)}
                           onMouseLeave={() => setHoveredNote(null)}
                           onClick={() => handlePlayKey(note)}
-                          className={`w-full h-full rounded-b-sm border border-black/80 shadow-md transition-all flex flex-col justify-end pb-2 items-center text-[8px] font-mono font-extrabold cursor-pointer ${
+                          className={`flex-1 h-36 sm:h-44 rounded-b-md transition-all relative flex flex-col justify-end pb-3 items-center text-xs font-bold border-r border-slate-200/20 last:border-0 cursor-pointer ${
                             isNoteActive
-                              ? 'bg-indigo-600 text-white translate-y-0.5 shadow-inner'
-                              : 'bg-slate-950 text-slate-400 hover:bg-slate-800'
+                              ? 'bg-gradient-to-t from-indigo-500 to-indigo-400 text-white translate-y-0.5 shadow-inner'
+                              : 'bg-white text-slate-900 hover:bg-slate-100'
                           }`}
-                          id={`piano-key-sharp-c`}
+                          style={{ zIndex: 1 }}
+                          id={`piano-key-${note.name}`}
                         >
-                          <span>C#</span>
+                          <span className="text-[10px] sm:text-xs">{note.name}</span>
+                          <span className="text-[8px] opacity-60 font-mono mt-0.5">{note.enName}</span>
                         </button>
-                      ) : null;
-                    })()}
-                  </div>
+                      );
+                    })}
 
-                  {/* D# / Eb */}
-                  <div className="absolute left-[16.5%] sm:left-[16.6%] top-2 w-[8%] sm:w-[7.5%] h-24 sm:h-28 z-10">
-                    {(() => {
-                      const note = MUSICAL_NOTES.find(n => n.name === 'Ré#')!;
-                      const isNoteActive = activeNote === note?.name;
-                      return note ? (
-                        <button
-                          onMouseEnter={() => setHoveredNote(note)}
-                          onMouseLeave={() => setHoveredNote(null)}
-                          onClick={() => handlePlayKey(note)}
-                          className={`w-full h-full rounded-b-sm border border-black/80 shadow-md transition-all flex flex-col justify-end pb-2 items-center text-[8px] font-mono font-extrabold cursor-pointer ${
-                            isNoteActive
-                              ? 'bg-indigo-600 text-white translate-y-0.5 shadow-inner'
-                              : 'bg-slate-950 text-slate-400 hover:bg-slate-800'
-                          }`}
-                          id={`piano-key-sharp-d`}
-                        >
-                          <span>D#</span>
-                        </button>
-                      ) : null;
-                    })()}
-                  </div>
+                    {/* Black Keys (Overlayed absolute positioned elements relative to the white keys container) */}
+                    {/* C# / Db */}
+                    <div className="absolute left-[8.75%] top-0 w-[7.5%] h-24 sm:h-28 z-10">
+                      {(() => {
+                        const note = MUSICAL_NOTES.find(n => n.name === 'Dó#')!;
+                        const isNoteActive = activeNote === note?.name;
+                        return note ? (
+                          <button
+                            onMouseEnter={() => setHoveredNote(note)}
+                            onMouseLeave={() => setHoveredNote(null)}
+                            onClick={() => handlePlayKey(note)}
+                            className={`w-full h-full rounded-b-sm border border-black/80 shadow-md transition-all flex flex-col justify-end pb-2 items-center text-[8px] font-mono font-extrabold cursor-pointer ${
+                              isNoteActive
+                                ? 'bg-indigo-600 text-white translate-y-0.5 shadow-inner'
+                                : 'bg-slate-950 text-slate-400 hover:bg-slate-800'
+                            }`}
+                            id={`piano-key-sharp-c`}
+                          >
+                            <span>C#</span>
+                          </button>
+                        ) : null;
+                      })()}
+                    </div>
 
-                  {/* F# / Gb */}
-                  <div className="absolute left-[33%] sm:left-[33.3%] top-2 w-[8%] sm:w-[7.5%] h-24 sm:h-28 z-10">
-                    {(() => {
-                      const note = MUSICAL_NOTES.find(n => n.name === 'Fá#')!;
-                      const isNoteActive = activeNote === note?.name;
-                      return note ? (
-                        <button
-                          onMouseEnter={() => setHoveredNote(note)}
-                          onMouseLeave={() => setHoveredNote(null)}
-                          onClick={() => handlePlayKey(note)}
-                          className={`w-full h-full rounded-b-sm border border-black/80 shadow-md transition-all flex flex-col justify-end pb-2 items-center text-[8px] font-mono font-extrabold cursor-pointer ${
-                            isNoteActive
-                              ? 'bg-indigo-600 text-white translate-y-0.5 shadow-inner'
-                              : 'bg-slate-950 text-slate-400 hover:bg-slate-800'
-                          }`}
-                          id={`piano-key-sharp-f`}
-                        >
-                          <span>F#</span>
-                        </button>
-                      ) : null;
-                    })()}
-                  </div>
+                    {/* D# / Eb */}
+                    <div className="absolute left-[21.25%] top-0 w-[7.5%] h-24 sm:h-28 z-10">
+                      {(() => {
+                        const note = MUSICAL_NOTES.find(n => n.name === 'Ré#')!;
+                        const isNoteActive = activeNote === note?.name;
+                        return note ? (
+                          <button
+                            onMouseEnter={() => setHoveredNote(note)}
+                            onMouseLeave={() => setHoveredNote(null)}
+                            onClick={() => handlePlayKey(note)}
+                            className={`w-full h-full rounded-b-sm border border-black/80 shadow-md transition-all flex flex-col justify-end pb-2 items-center text-[8px] font-mono font-extrabold cursor-pointer ${
+                              isNoteActive
+                                ? 'bg-indigo-600 text-white translate-y-0.5 shadow-inner'
+                                : 'bg-slate-950 text-slate-400 hover:bg-slate-800'
+                            }`}
+                            id={`piano-key-sharp-d`}
+                          >
+                            <span>D#</span>
+                          </button>
+                        ) : null;
+                      })()}
+                    </div>
 
-                  {/* G# / Ab */}
-                  <div className="absolute left-[41.5%] sm:left-[41.6%] top-2 w-[8%] sm:w-[7.5%] h-24 sm:h-28 z-10">
-                    {(() => {
-                      const note = MUSICAL_NOTES.find(n => n.name === 'Sol#')!;
-                      const isNoteActive = activeNote === note?.name;
-                      return note ? (
-                        <button
-                          onMouseEnter={() => setHoveredNote(note)}
-                          onMouseLeave={() => setHoveredNote(null)}
-                          onClick={() => handlePlayKey(note)}
-                          className={`w-full h-full rounded-b-sm border border-black/80 shadow-md transition-all flex flex-col justify-end pb-2 items-center text-[8px] font-mono font-extrabold cursor-pointer ${
-                            isNoteActive
-                              ? 'bg-indigo-600 text-white translate-y-0.5 shadow-inner'
-                              : 'bg-slate-950 text-slate-400 hover:bg-slate-800'
-                          }`}
-                          id={`piano-key-sharp-g`}
-                        >
-                          <span>G#</span>
-                        </button>
-                      ) : null;
-                    })()}
-                  </div>
+                    {/* F# / Gb */}
+                    <div className="absolute left-[46.25%] top-0 w-[7.5%] h-24 sm:h-28 z-10">
+                      {(() => {
+                        const note = MUSICAL_NOTES.find(n => n.name === 'Fá#')!;
+                        const isNoteActive = activeNote === note?.name;
+                        return note ? (
+                          <button
+                            onMouseEnter={() => setHoveredNote(note)}
+                            onMouseLeave={() => setHoveredNote(null)}
+                            onClick={() => handlePlayKey(note)}
+                            className={`w-full h-full rounded-b-sm border border-black/80 shadow-md transition-all flex flex-col justify-end pb-2 items-center text-[8px] font-mono font-extrabold cursor-pointer ${
+                              isNoteActive
+                                ? 'bg-indigo-600 text-white translate-y-0.5 shadow-inner'
+                                : 'bg-slate-950 text-slate-400 hover:bg-slate-800'
+                            }`}
+                            id={`piano-key-sharp-f`}
+                          >
+                            <span>F#</span>
+                          </button>
+                        ) : null;
+                      })()}
+                    </div>
 
-                  {/* A# / Bb */}
-                  <div className="absolute left-[50%] sm:left-[50%] top-2 w-[8%] sm:w-[7.5%] h-24 sm:h-28 z-10">
-                    {(() => {
-                      const note = MUSICAL_NOTES.find(n => n.name === 'Lá#')!;
-                      const isNoteActive = activeNote === note?.name;
-                      return note ? (
-                        <button
-                          onMouseEnter={() => setHoveredNote(note)}
-                          onMouseLeave={() => setHoveredNote(null)}
-                          onClick={() => handlePlayKey(note)}
-                          className={`w-full h-full rounded-b-sm border border-black/80 shadow-md transition-all flex flex-col justify-end pb-2 items-center text-[8px] font-mono font-extrabold cursor-pointer ${
-                            isNoteActive
-                              ? 'bg-indigo-600 text-white translate-y-0.5 shadow-inner'
-                              : 'bg-slate-950 text-slate-400 hover:bg-slate-800'
-                          }`}
-                          id={`piano-key-sharp-a`}
-                        >
-                          <span>A#</span>
-                        </button>
-                      ) : null;
-                    })()}
-                  </div>
+                    {/* G# / Ab */}
+                    <div className="absolute left-[58.75%] top-0 w-[7.5%] h-24 sm:h-28 z-10">
+                      {(() => {
+                        const note = MUSICAL_NOTES.find(n => n.name === 'Sol#')!;
+                        const isNoteActive = activeNote === note?.name;
+                        return note ? (
+                          <button
+                            onMouseEnter={() => setHoveredNote(note)}
+                            onMouseLeave={() => setHoveredNote(null)}
+                            onClick={() => handlePlayKey(note)}
+                            className={`w-full h-full rounded-b-sm border border-black/80 shadow-md transition-all flex flex-col justify-end pb-2 items-center text-[8px] font-mono font-extrabold cursor-pointer ${
+                              isNoteActive
+                                ? 'bg-indigo-600 text-white translate-y-0.5 shadow-inner'
+                                : 'bg-slate-950 text-slate-400 hover:bg-slate-800'
+                            }`}
+                            id={`piano-key-sharp-g`}
+                          >
+                            <span>G#</span>
+                          </button>
+                        ) : null;
+                      })()}
+                    </div>
 
+                    {/* A# / Bb */}
+                    <div className="absolute left-[71.25%] top-0 w-[7.5%] h-24 sm:h-28 z-10">
+                      {(() => {
+                        const note = MUSICAL_NOTES.find(n => n.name === 'Lá#')!;
+                        const isNoteActive = activeNote === note?.name;
+                        return note ? (
+                          <button
+                            onMouseEnter={() => setHoveredNote(note)}
+                            onMouseLeave={() => setHoveredNote(null)}
+                            onClick={() => handlePlayKey(note)}
+                            className={`w-full h-full rounded-b-sm border border-black/80 shadow-md transition-all flex flex-col justify-end pb-2 items-center text-[8px] font-mono font-extrabold cursor-pointer ${
+                              isNoteActive
+                                ? 'bg-indigo-600 text-white translate-y-0.5 shadow-inner'
+                                : 'bg-slate-950 text-slate-400 hover:bg-slate-800'
+                            }`}
+                            id={`piano-key-sharp-a`}
+                          >
+                            <span>A#</span>
+                          </button>
+                        ) : null;
+                      })()}
+                    </div>
+
+                  </div>
                 </div>
               </div>
 

@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
-import { Music, Menu, X, Sparkles, Award, User, LogOut } from 'lucide-react';
+import { Music, Menu, X, Sparkles, Award, User, LogOut, MessageCircle } from 'lucide-react';
 
 interface NavbarProps {
   onOpenLogin: () => void;

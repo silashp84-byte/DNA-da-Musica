@@ -170,37 +170,6 @@ export default function MembersArea({
               </div>
             </div>
 
-            {/* WhatsApp Group Invitation Banner */}
-            <div className="bg-gradient-to-r from-emerald-600/10 to-teal-600/10 border border-emerald-500/20 p-5 rounded-2xl flex flex-col md:flex-row justify-between items-center gap-4 shadow-md animate-fade-in">
-              <div className="flex items-center gap-4 text-center md:text-left flex-col md:flex-row">
-                <div className="p-3 bg-emerald-500/10 text-emerald-400 rounded-xl flex-shrink-0">
-                  <MessageCircle className="w-6 h-6 animate-pulse" />
-                </div>
-                <div>
-                  <div className="flex items-center justify-center md:justify-start gap-2">
-                    <span className="text-[10px] font-bold bg-emerald-500/20 text-emerald-400 border border-emerald-500/30 px-2.5 py-0.5 rounded-full uppercase tracking-wider font-mono">
-                      Comunidade Exclusiva
-                    </span>
-                    <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-ping" />
-                    <span className="text-[10px] font-bold text-emerald-400">Grupo de Alunos</span>
-                  </div>
-                  <h4 className="text-white font-bold text-base mt-1">Grupo Oficial no WhatsApp</h4>
-                  <p className="text-slate-400 text-xs mt-0.5 max-w-xl">
-                    Conecte-se com Silas Prado e centenas de estudantes! Compartilhe seu progresso, tire dúvidas sobre as pautas interativas e receba dicas exclusivas diretamente no seu celular.
-                  </p>
-                </div>
-              </div>
-              <a
-                href="https://chat.whatsapp.com/HUz9JeJhWWS0wjWdG2pKsL"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="w-full md:w-auto bg-emerald-500 hover:bg-emerald-400 text-slate-950 font-display font-black px-6 py-3 rounded-xl transition-all hover:shadow-[0_0_20px_rgba(16,185,129,0.3)] hover:scale-[1.02] cursor-pointer text-xs sm:text-sm text-center flex items-center justify-center gap-2 flex-shrink-0"
-                id="btn-join-whatsapp-group"
-              >
-                <MessageCircle className="w-4.5 h-4.5" />
-                Entrar no Grupo de Alunos
-              </a>
-            </div>
 
             {/* Dashboard Workspace */}
             <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">

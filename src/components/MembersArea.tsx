@@ -318,7 +318,7 @@ export default function MembersArea({
                         {/* Signatures */}
                         <div className="flex justify-around pt-4 font-sans text-[7px] text-slate-500">
                           <div className="text-center">
-                            <span className="border-t border-white/10 pt-1 block">Silas Prado</span>
+                            <span className="border-t border-white/10 pt-1 block">Silas Alves</span>
                             <span className="text-[6px] block mt-0.5">Fundador DNA da Música</span>
                           </div>
                           <div className="text-center">

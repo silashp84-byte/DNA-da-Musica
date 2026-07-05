@@ -175,7 +175,7 @@ export default function App() {
                         Grupo Oficial de Alunos no WhatsApp
                       </h3>
                       <p className="text-slate-400 text-sm max-w-2xl leading-relaxed mt-1">
-                        Não estude sozinho! Clique no botão ao lado para entrar no nosso grupo oficial, tirar dúvidas diretamente com o <strong className="text-amber-400">Silas Prado</strong>, compartilhar seus treinos de teclado virtual e interagir com centenas de outros estudantes.
+                        Não estude sozinho! Clique no botão ao lado para entrar no nosso grupo oficial, tirar dúvidas diretamente com o <strong className="text-amber-400">Silas Alves</strong>, compartilhar seus treinos de teclado virtual e interagir com centenas de outros estudantes.
                       </p>
                     </div>
                   </div>

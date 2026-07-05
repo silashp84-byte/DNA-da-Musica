@@ -168,7 +168,7 @@ export default function AuthModal({ isOpen, onClose, onLogin }: AuthModalProps) 
                       required
                       value={formData.name}
                       onChange={(e) => setFormData({ ...formData, name: e.target.value })}
-                      placeholder="Ex: Silas Prado"
+                      placeholder="Ex: Silas Alves"
                       className="w-full bg-slate-950 border border-white/5 rounded-xl px-4 py-3 text-sm text-white placeholder-slate-600 focus:outline-none focus:border-indigo-500 focus:ring-1 focus:ring-indigo-500 transition-colors"
                       id="input-auth-name"
                     />

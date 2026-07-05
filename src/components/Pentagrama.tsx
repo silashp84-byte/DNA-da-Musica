@@ -15,18 +15,23 @@ interface StaffNote {
 export default function Pentagrama() {
   const [activeNote, setActiveNote] = useState<StaffNote | null>(null);
 
-  // Notes on Treble Clef from E4 to F5
+  // Notes on Treble Clef from C4 to C6 (Ascending)
   const staffNotes: StaffNote[] = [
-    { id: 'F5', name: 'Fá (Agudo)', frequency: 698.46, y: 15, isLine: false, positionLabel: '5º Espaço (superior)' },
-    { id: 'E5', name: 'Mi (Agudo)', frequency: 659.25, y: 30, isLine: true, positionLabel: '5ª Linha' },
-    { id: 'D5', name: 'Ré (Agudo)', frequency: 587.33, y: 45, isLine: false, positionLabel: '4º Espaço' },
-    { id: 'C5', name: 'Dó (Agudo)', frequency: 523.25, y: 60, isLine: true, positionLabel: '4ª Linha' },
-    { id: 'B4', name: 'Si', frequency: 493.88, y: 75, isLine: false, positionLabel: '3º Espaço' },
-    { id: 'A4', name: 'Lá', frequency: 440.00, y: 90, isLine: true, positionLabel: '3ª Linha' },
-    { id: 'G4', name: 'Sol', frequency: 392.00, y: 105, isLine: false, positionLabel: '2º Espaço' },
-    { id: 'F4', name: 'Fá', frequency: 349.23, y: 120, isLine: true, positionLabel: '2ª Linha' },
-    { id: 'E4', name: 'Mi', frequency: 329.63, y: 135, isLine: false, positionLabel: '1º Espaço' },
-    { id: 'D4', name: 'Ré', frequency: 293.66, y: 150, isLine: true, positionLabel: '1ª Linha' },
+    { id: 'C4', name: 'Dó (Central)', frequency: 261.63, y: 225, isLine: true, positionLabel: '1ª Linha Suplementar Inferior' },
+    { id: 'D4', name: 'Ré', frequency: 293.66, y: 210, isLine: false, positionLabel: 'Espaço Suplementar Inferior' },
+    { id: 'E4', name: 'Mi', frequency: 329.63, y: 195, isLine: true, positionLabel: '1ª Linha' },
+    { id: 'F4', name: 'Fá', frequency: 349.23, y: 180, isLine: false, positionLabel: '1º Espaço' },
+    { id: 'G4', name: 'Sol', frequency: 392.00, y: 165, isLine: true, positionLabel: '2ª Linha' },
+    { id: 'A4', name: 'Lá', frequency: 440.00, y: 150, isLine: false, positionLabel: '2º Espaço' },
+    { id: 'B4', name: 'Si', frequency: 493.88, y: 135, isLine: true, positionLabel: '3ª Linha' },
+    { id: 'C5', name: 'Dó (Agudo)', frequency: 523.25, y: 120, isLine: false, positionLabel: '3º Espaço' },
+    { id: 'D5', name: 'Ré (Agudo)', frequency: 587.33, y: 105, isLine: true, positionLabel: '4ª Linha' },
+    { id: 'E5', name: 'Mi (Agudo)', frequency: 659.25, y: 90, isLine: false, positionLabel: '4º Espaço' },
+    { id: 'F5', name: 'Fá (Agudo)', frequency: 698.46, y: 75, isLine: true, positionLabel: '5ª Linha' },
+    { id: 'G5', name: 'Sol (Agudo)', frequency: 783.99, y: 60, isLine: false, positionLabel: 'Espaço Suplementar Superior' },
+    { id: 'A5', name: 'Lá (Agudo)', frequency: 880.00, y: 45, isLine: true, positionLabel: '1ª Linha Suplementar Superior' },
+    { id: 'B5', name: 'Si (Agudo)', frequency: 987.77, y: 30, isLine: false, positionLabel: '2º Espaço Suplementar Superior' },
+    { id: 'C6', name: 'Dó (Altíssimo)', frequency: 1046.50, y: 15, isLine: true, positionLabel: '2ª Linha Suplementar Superior' },
   ];
 
   const handleNotePlay = async (note: StaffNote) => {
@@ -118,26 +123,26 @@ export default function Pentagrama() {
 
               {/* The SVG Staff Grid */}
               <div className="relative bg-slate-900/60 p-6 sm:p-10 rounded-2xl border border-white/5 flex items-center justify-center overflow-x-auto">
-                <div className="relative min-w-[500px] w-full h-[180px]">
+                <div className="relative min-w-[700px] w-full h-[260px]">
                   
                   {/* Clave de Sol Visual (Standard Background SVG or character) */}
-                  <div className="absolute left-4 top-[35px] text-6xl sm:text-7xl select-none pointer-events-none opacity-80 text-white font-serif font-light">
+                  <div className="absolute left-4 top-[75px] text-6xl sm:text-7xl select-none pointer-events-none opacity-80 text-white font-serif font-light">
                     🎼
                   </div>
 
                   {/* 5 Lines of staff */}
-                  <div className="absolute inset-x-0 top-[30px] h-[1px] bg-slate-700" />
-                  <div className="absolute inset-x-0 top-[60px] h-[1px] bg-slate-700" />
-                  <div className="absolute inset-x-0 top-[90px] h-[1px] bg-slate-700" />
-                  <div className="absolute inset-x-0 top-[120px] h-[1px] bg-slate-700" />
-                  <div className="absolute inset-x-0 top-[150px] h-[1px] bg-slate-700" />
+                  <div className="absolute inset-x-0 top-[75px] h-[1px] bg-slate-700" />
+                  <div className="absolute inset-x-0 top-[105px] h-[1px] bg-slate-700" />
+                  <div className="absolute inset-x-0 top-[135px] h-[1px] bg-slate-700" />
+                  <div className="absolute inset-x-0 top-[165px] h-[1px] bg-slate-700" />
+                  <div className="absolute inset-x-0 top-[195px] h-[1px] bg-slate-700" />
 
                   {/* Lines Labels (1 to 5) */}
-                  <div className="absolute left-0 top-[144px] text-[9px] font-mono font-bold text-slate-500">1ª Linha</div>
-                  <div className="absolute left-0 top-[114px] text-[9px] font-mono font-bold text-slate-500">2ª Linha</div>
-                  <div className="absolute left-0 top-[84px] text-[9px] font-mono font-bold text-slate-500">3ª Linha</div>
-                  <div className="absolute left-0 top-[54px] text-[9px] font-mono font-bold text-slate-500">4ª Linha</div>
-                  <div className="absolute left-0 top-[24px] text-[9px] font-mono font-bold text-slate-500">5ª Linha</div>
+                  <div className="absolute left-0 top-[189px] text-[9px] font-mono font-bold text-slate-500">1ª Linha</div>
+                  <div className="absolute left-0 top-[159px] text-[9px] font-mono font-bold text-slate-500">2ª Linha</div>
+                  <div className="absolute left-0 top-[129px] text-[9px] font-mono font-bold text-slate-500">3ª Linha</div>
+                  <div className="absolute left-0 top-[99px] text-[9px] font-mono font-bold text-slate-500">4ª Linha</div>
+                  <div className="absolute left-0 top-[69px] text-[9px] font-mono font-bold text-slate-500">5ª Linha</div>
 
                   {/* Interactive Notes Circles mapped horizontally */}
                   <div className="absolute inset-0 flex justify-around pl-16 pr-8">
@@ -151,20 +156,55 @@ export default function Pentagrama() {
                           onClick={() => handleNotePlay(note)}
                           id={`staff-note-node-${note.id}`}
                         >
+                          {/* Ledger Lines (Linhas Complementares / Suplementares) */}
+                          {note.y >= 225 && (
+                            <div className="absolute w-10 sm:w-12 h-[1.5px] bg-slate-500/80 z-0 pointer-events-none left-1/2 -translate-x-1/2 top-2 sm:top-2.5" />
+                          )}
+                          {note.y <= 45 && (
+                            <>
+                              {/* Line at 45px */}
+                              <div 
+                                className="absolute w-10 sm:w-12 h-[1.5px] bg-slate-500/80 z-0 pointer-events-none left-1/2 -translate-x-1/2 block sm:hidden" 
+                                style={{ top: `${45 - note.y + 8}px` }} 
+                              />
+                              <div 
+                                className="absolute w-10 sm:w-12 h-[1.5px] bg-slate-500/80 z-0 pointer-events-none left-1/2 -translate-x-1/2 hidden sm:block" 
+                                style={{ top: `${45 - note.y + 10}px` }} 
+                              />
+                            </>
+                          )}
+                          {note.y <= 15 && (
+                            <>
+                              {/* Line at 15px */}
+                              <div 
+                                className="absolute w-10 sm:w-12 h-[1.5px] bg-slate-500/80 z-0 pointer-events-none left-1/2 -translate-x-1/2 block sm:hidden" 
+                                style={{ top: `${15 - note.y + 8}px` }} 
+                              />
+                              <div 
+                                className="absolute w-10 sm:w-12 h-[1.5px] bg-slate-500/80 z-0 pointer-events-none left-1/2 -translate-x-1/2 hidden sm:block" 
+                                style={{ top: `${15 - note.y + 10}px` }} 
+                              />
+                            </>
+                          )}
+
                           {/* Note circle head */}
                           <div
-                            className={`w-6 h-4 sm:w-7 sm:h-5 rounded-full rotate-[-15deg] transition-all relative flex items-center justify-center border ${
+                            className={`w-6 h-4 sm:w-7 sm:h-5 rounded-full rotate-[-15deg] transition-all relative flex items-center justify-center border z-10 ${
                               isNoteActive
                                 ? 'bg-indigo-400 border-indigo-300 shadow-[0_0_15px_rgba(129,140,248,0.6)] scale-110'
                                 : 'bg-amber-400 border-amber-300 hover:bg-amber-300'
                             }`}
                           >
-                            {/* Stem */}
-                            <div className="absolute right-0 bottom-1 w-[1.5px] h-10 bg-slate-400 group-hover:bg-slate-300 origin-bottom" />
+                            {/* Stem (Conditional direction based on pitch/position) */}
+                            {note.y <= 135 ? (
+                              <div className="absolute left-[1px] top-2 sm:top-2.5 w-[1.5px] h-10 bg-slate-400 group-hover:bg-slate-300 origin-top" />
+                            ) : (
+                              <div className="absolute right-[1px] bottom-2 sm:bottom-2.5 w-[1.5px] h-10 bg-slate-400 group-hover:bg-slate-300 origin-bottom" />
+                            )}
                           </div>
 
                           {/* Note Label floating above/under */}
-                          <span className="absolute top-6 font-mono text-[9px] font-bold text-slate-400 group-hover:text-white transition-colors bg-slate-950/80 px-1 rounded">
+                          <span className="absolute top-6 font-mono text-[9px] font-bold text-slate-400 group-hover:text-white transition-colors bg-slate-950/80 px-1 rounded z-10">
                             {note.name.split(' ')[0]}
                           </span>
                         </div>

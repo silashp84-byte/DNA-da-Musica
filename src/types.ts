@@ -115,7 +115,7 @@ export const RHYTHM_FIGURES: RhythmFigure[] = [
     duration: 1,
     beats: 4,
     symbol: '𝅝',
-    restSymbol: '𝄾',
+    restSymbol: '𝄻',
     silenceDescription: 'Pausa pendurada sob a 4ª linha',
   },
   {
@@ -124,7 +124,7 @@ export const RHYTHM_FIGURES: RhythmFigure[] = [
     duration: 0.5,
     beats: 2,
     symbol: '𝅗𝅥',
-    restSymbol: '𝄽',
+    restSymbol: '𝄼',
     silenceDescription: 'Pausa apoiada sobre a 3ª linha',
   },
   {
@@ -133,7 +133,7 @@ export const RHYTHM_FIGURES: RhythmFigure[] = [
     duration: 0.25,
     beats: 1,
     symbol: '𝅘𝅥',
-    restSymbol: '𝄾',
+    restSymbol: '𝄽',
     silenceDescription: 'Pausa ondulada no centro do pentagrama',
   },
   {
@@ -142,7 +142,7 @@ export const RHYTHM_FIGURES: RhythmFigure[] = [
     duration: 0.125,
     beats: 0.5,
     symbol: '𝅘𝅥𝅮',
-    restSymbol: '𝄿',
+    restSymbol: '𝄾',
     silenceDescription: 'Pausa com uma bandeirola',
   },
   {
@@ -151,8 +151,26 @@ export const RHYTHM_FIGURES: RhythmFigure[] = [
     duration: 0.0625,
     beats: 0.25,
     symbol: '𝅘𝅥𝅯',
-    restSymbol: '𝅀',
+    restSymbol: '𝄿',
     silenceDescription: 'Pausa com duas bandeirolas',
+  },
+  {
+    id: 'fusa',
+    name: 'Fusa',
+    duration: 0.03125,
+    beats: 0.125,
+    symbol: '𝅘𝅥𝅰',
+    restSymbol: '𝅀',
+    silenceDescription: 'Pausa com três bandeirolas',
+  },
+  {
+    id: 'semifusa',
+    name: 'Semifusa',
+    duration: 0.015625,
+    beats: 0.0625,
+    symbol: '𝅘𝅥𝅱',
+    restSymbol: '𝅁',
+    silenceDescription: 'Pausa com quatro bandeirolas',
   },
 ];
 

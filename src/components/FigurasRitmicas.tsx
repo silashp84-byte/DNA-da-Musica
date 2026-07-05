@@ -87,6 +87,17 @@ export default function FigurasRitmicas() {
     }
   };
 
+  const getBeatsLabel = (beats: number) => {
+    if (beats === 4) return '4 tempos';
+    if (beats === 2) return '2 tempos';
+    if (beats === 1) return '1 tempo';
+    if (beats === 0.5) return '1/2 de tempo';
+    if (beats === 0.25) return '1/4 de tempo';
+    if (beats === 0.125) return '1/8 de tempo';
+    if (beats === 0.0625) return '1/16 de tempo';
+    return `${beats} tempo(s)`;
+  };
+
   return (
     <section id="figuras" className="py-24 bg-slate-900 border-t border-white/5 relative">
       <div className="absolute top-1/2 right-1/4 w-[300px] h-[300px] bg-indigo-500/5 rounded-full blur-[100px] pointer-events-none" />
@@ -246,7 +257,7 @@ export default function FigurasRitmicas() {
 
                     <div className="flex items-center gap-3 w-full sm:w-auto justify-between sm:justify-end border-t sm:border-t-0 border-white/5 pt-3 sm:pt-0">
                       <div className="text-right">
-                        <span className="text-xs text-slate-300 block font-semibold font-mono">{figure.beats} {figure.beats === 1 ? 'tempo' : 'tempos'}</span>
+                        <span className="text-xs text-slate-300 block font-semibold font-mono">{getBeatsLabel(figure.beats)}</span>
                         <span className="text-[9px] text-slate-500 block uppercase">Fórmula de valor: 1/{1 / figure.duration}</span>
                       </div>
 

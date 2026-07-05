@@ -14,17 +14,23 @@ export default function Navbar({ onOpenLogin, isLoggedIn, userName, onLogout }: 
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [activeSection, setActiveSection] = useState('hero');
 
-  const navItems = [
-    { id: 'teoria', name: 'Teoria' },
-    { id: 'fundamentos', name: 'Fundamentos' },
-    { id: 'notas', name: 'Notas' },
-    { id: 'pentagrama', name: 'Pentagrama' },
-    { id: 'figuras', name: 'Ritmo' },
-    { id: 'escalas', name: 'Escalas' },
-    { id: 'exercicios', name: 'Exercícios' },
-    { id: 'quiz', name: 'Desafio' },
-    { id: 'members-dashboard', name: 'Área de Membros' },
-  ];
+  const navItems = isLoggedIn
+    ? [
+        { id: 'teoria', name: 'Teoria' },
+        { id: 'fundamentos', name: 'Fundamentos' },
+        { id: 'notas', name: 'Notas' },
+        { id: 'pentagrama', name: 'Pentagrama' },
+        { id: 'figuras', name: 'Ritmo' },
+        { id: 'escalas', name: 'Escalas' },
+        { id: 'exercicios', name: 'Exercícios' },
+        { id: 'quiz', name: 'Desafio' },
+        { id: 'members-dashboard', name: 'Área de Membros' },
+      ]
+    : [
+        { id: 'hero', name: 'Início' },
+        { id: 'members-dashboard', name: 'Área de Membros' },
+        { id: 'downloads', name: 'Downloads' },
+      ];
 
   useEffect(() => {
     const handleScroll = () => {

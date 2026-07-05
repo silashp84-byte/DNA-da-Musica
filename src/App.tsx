@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react';
+import { Sparkles } from 'lucide-react';
 import Navbar from './components/Navbar';
 import Hero from './components/Hero';
 import TeoriaMusical from './components/TeoriaMusical';
@@ -106,6 +107,10 @@ export default function App() {
   };
 
   const handleStartTour = () => {
+    if (!session.isLoggedIn) {
+      handleOpenLogin();
+      return;
+    }
     const element = document.getElementById('teoria');
     if (element) {
       const offset = 80; // height of navbar
@@ -147,39 +152,69 @@ export default function App() {
           userName={session.name}
         />
 
-        {/* 2. O que é Teoria Musical */}
-        <TeoriaMusical />
+        {session.isLoggedIn ? (
+          <>
+            {/* 2. O que é Teoria Musical */}
+            <TeoriaMusical />
 
-        {/* 3. Primeiros Fundamentos */}
-        <Fundamentos />
+            {/* 3. Primeiros Fundamentos */}
+            <Fundamentos />
 
-        {/* 4. Notas Musicais */}
-        <NotasMusicais />
+            {/* 4. Notas Musicais */}
+            <NotasMusicais />
 
-        {/* 5. Pentagrama */}
-        <Pentagrama />
+            {/* 5. Pentagrama */}
+            <Pentagrama />
 
-        {/* 6. Claves */}
-        <Claves />
+            {/* 6. Claves */}
+            <Claves />
 
-        {/* 7. Figuras Rítmicas */}
-        <FigurasRitmicas />
+            {/* 7. Figuras Rítmicas */}
+            <FigurasRitmicas />
 
-        {/* 8. Intervalos */}
-        <Intervalos />
+            {/* 8. Intervalos */}
+            <Intervalos />
 
-        {/* 9. Escalas */}
-        <Escalas />
+            {/* 9. Escalas */}
+            <Escalas />
 
-        {/* 10. Exercícios Interativos */}
-        <Exercicios />
+            {/* 10. Exercícios Interativos */}
+            <Exercicios />
 
-        {/* 11. Quiz */}
-        <Quiz 
-          onOpenLogin={handleOpenLogin} 
-          onSaveScore={handleSaveQuizScore}
-          isLoggedIn={session.isLoggedIn}
-        />
+            {/* 11. Quiz */}
+            <Quiz 
+              onOpenLogin={handleOpenLogin} 
+              onSaveScore={handleSaveQuizScore}
+              isLoggedIn={session.isLoggedIn}
+            />
+          </>
+        ) : (
+          /* Locked Content Preview/Callout Section */
+          <section className="py-20 bg-slate-900/20 border-t border-b border-white/5 relative" id="content-locked-preview">
+            <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[300px] h-[300px] bg-indigo-600/5 rounded-full blur-[100px] pointer-events-none" />
+            <div className="max-w-4xl mx-auto px-4 text-center space-y-6 relative z-10">
+              <div className="inline-flex p-3.5 bg-indigo-500/10 text-indigo-400 rounded-2xl border border-indigo-500/20 animate-pulse">
+                <Sparkles className="w-8 h-8" />
+              </div>
+              <h2 className="font-display font-black text-2xl sm:text-3xl text-white">
+                Conteúdo Teórico & Simuladores Interativos
+              </h2>
+              <p className="text-slate-400 text-sm sm:text-base max-w-2xl mx-auto leading-relaxed">
+                As lições dinâmicas de notas, o piano virtual interativo, simuladores de figuras rítmicas e claves, treinos auditivos avançados e o quiz de certificação estão ocultos para visitantes. 
+                Crie sua conta gratuita em poucos cliques para liberar imediatamente todo o conteúdo passo a passo.
+              </p>
+              <div>
+                <button
+                  onClick={handleOpenLogin}
+                  className="bg-gradient-to-r from-amber-400 to-yellow-500 hover:from-amber-500 hover:to-yellow-600 text-slate-950 font-display font-black px-8 py-4 rounded-xl transition-all hover:shadow-[0_0_20px_rgba(245,158,11,0.3)] hover:scale-[1.01] cursor-pointer text-sm font-bold"
+                  id="btn-locked-preview-unlock"
+                >
+                  Cadastrar-se Gratuitamente & Liberar Aulas
+                </button>
+              </div>
+            </div>
+          </section>
+        )}
 
         {/* 12. Área de Membros Dashboard */}
         <MembersArea 
